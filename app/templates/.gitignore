@@ -1,0 +1,9 @@
+# Virtualenv/python
+*.pyc
+bin
+lib
+include
+previous
+
+# Mac OS X custom attribute files
+.DS_Store

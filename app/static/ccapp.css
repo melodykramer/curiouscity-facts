@@ -1,0 +1,52 @@
+body {
+	font-family: 'PT Sans', sans-serif;
+	color: white;
+	transition: background 0.2s, color 0.2s;
+	background-color: #3584A2;
+}
+
+.fa {
+	font-size: 24px;
+	width: 30px;
+	height: 30px;
+}
+
+img {
+	width:100%;
+}
+
+.footer {
+	vertical-align: middle;
+	margin: 50px 0;
+}
+
+a {
+	color:white;
+}
+
+.next {
+	font-size: 24px;
+}
+
+.fact {
+	margin-top: 1em;
+	font-size: 3em;
+}
+
+.fa-refresh {
+    box-shadow: 0 0 0 4px rgba(255,255,255,1);
+    transition: background 0.2s, color 0.2s;    
+    border-radius: 50%;
+    line-height: 30px;
+    margin-right: .5em;
+    color:white;
+}
+ 
+.fa-refresh:hover {
+    background: rgba(255,255,255,1);
+	color: #3584A2;
+  	-webkit-animation: spin 2s infinite linear;
+  	-moz-animation: spin 2s infinite linear;
+  	-o-animation: spin 2s infinite linear;
+  	animation: spin 2s infinite linear;
+}

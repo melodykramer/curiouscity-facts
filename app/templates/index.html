@@ -1,0 +1,82 @@
+{% extends "base.html" %}
+{% block content %}
+	<div class="col-xs-12 col-sm-8 col-md-6 col-md-offset-3">
+		<div class="header">
+			<i class="fa fa-question-circle pull-right"></i>
+			WBEZ Curious City's<br/>
+			Curious Fact Generator
+		</div>
+		<div class="card">
+			{% include "%s.html"|format(data.Template) ignore missing %}
+		</div>
+	</div>
+
+{% endblock %}
+
+{% block scripts %}
+<script>
+var factID = '{{ factID }}';
+var count = '{{ factCount }}';
+var newColor;
+backgrounds = ['#3584A2','#4cbde7','#64b278','#77b23e','#e7764c','#f0aa8f','#774ce7','#aa8ff0']
+
+$( document ).ready(function() {
+	var clicks = 0;
+	var give_us_money = '<div class="title front fact" id="{{data.ID}}">GIVE US MONEY<span class="next pull-right"><i class="fa fa-refresh text-center"></i>Still Curious?</span></div>'
+	var visited = new Array();
+	visited.push(factID);
+
+	// The next button. Adds a click and then kicks off the changing of the fact
+	$(document).on( 'click', '.next', function(e) {
+		clicks++;
+		newColor = backgrounds[Math.floor((Math.random()*backgrounds.length))];
+		console.log(newColor);
+		$('body').css({
+        	'background-color': newColor
+    	});
+		$('.fact').fadeOut(250, function(){
+			changeFact();
+		});
+	});
+
+	// Checks number of clicks to see if a callout shoud happen. If not, get a new fact
+    function changeFact(){
+		if (clicks % count == 0){
+			visited = [];
+		};
+		if ((clicks % 5) == 0 && clicks > 0) {
+			history.pushState({}, '', "give_us_money");
+			$('.card').html(give_us_money);
+		} else {
+			getNewFact();
+		};
+	};
+
+	// Calls for a new fact, checks if it's already been seen. If not, update the template, if so, get another
+	function getNewFact(callback){
+		$.get('/random',function(data){
+			if ($.inArray(data,visited) != -1) {
+				getNewFact();
+			} else {
+				updateTemplate(data);
+			}
+		});
+	};
+
+	// Take a fact ID and update the template
+	function updateTemplate(entryID){
+		$('.card').load("/html/"+entryID,function(){
+			$(".fa-refresh").hover(
+				function(){$('.fa-refresh').css('color',newColor)},
+				function(){$('.fa-refresh').css('color','white')}
+			);
+		});
+		visited.push(entryID);
+		history.pushState({}, '', entryID);
+	};
+
+});
+
+</script>
+
+{% endblock %}
