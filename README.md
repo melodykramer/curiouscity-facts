@@ -5,7 +5,7 @@ The Curious City Fact Generator pulls a random fact from a Google Doc the team i
 ## How to install
 Clone this repo to your local machine. We recomend starting a new virtualenv for your project.
 
-Open up your terminal and navigate to the folder. Start up your virtualenv, and run pip install requirements.txt to get all the needed packages.
+Open up your terminal and navigate to the folder. Start up your virtualenv, and run pip install -r requirements.txt to get all the needed packages.
 
 From the terminal, run:
 	python run.py 
