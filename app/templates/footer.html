@@ -1,5 +1,7 @@
 <div class="footer">
 	<a href="{{data.StoryUrl}}" class="text-left">Full Story</a>
-	<a href="">Share This</a>
+	<a href="http://twitter.com/home?status={{data.FactText}} http://curiouscityfacts.com{{request.path}}" data-url="{{data.FactTweet}}"><i class="fa fa-twitter"></a></i>
+	<a href="https://www.facebook.com/sharer/sharer.php?u=http://curiouscityfacts.com{{request.path}}" target="_blank"><i class="fa fa-facebook"></i></a>
+	<a href="mailto:Subject=Cool%20fact%20from%20Curious%20City"><i class="fa fa-paper-plane"></i></a>
 	<span class="next pull-right"><i class="fa fa-refresh text-center"></i>Still Curious?</span>
 </div>
