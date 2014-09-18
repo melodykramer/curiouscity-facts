@@ -50,3 +50,11 @@ a {
   	-o-animation: spin 2s infinite linear;
   	animation: spin 2s infinite linear;
 }
+
+.modal-content {
+	background-color: #3584A2;
+}
+
+.modal-btn {
+	cursor: pointer;
+}
