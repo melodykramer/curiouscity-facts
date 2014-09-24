@@ -1,5 +1,8 @@
 		<div class="fact picture" id="{{data.ID}}">
 	    	{%if data.FactText %}{{data.FactText}}{% endif %}
-	        {%if data.Image %}<br/><img src="{{data.Image}}"/>{% endif %}
-	    </div>
+	        {%if data.Image %}<i class="fa fa-camera"></i><br>
+			
+			
+			<img src="{{data.Image}}" class="img-responsive fact-photo" alt="Responsive image">{% endif %}
+	    </div></img>
 	    {% include 'footer.html' %}

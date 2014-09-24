@@ -1,15 +1,23 @@
+
+
 {% extends "base.html" %}
 {% block content %}
-	<div class="col-xs-12 col-sm-8 col-md-6 col-md-offset-3">
-		<div class="header">
-			<i class="fa fa-question-circle pull-right modal-btn"></i>
-			WBEZ Curious City's<br/>
-			Curious Fact Generator
+
+
+
+<div class="header">
+<i class="fa fa-question-circle pull-right modal-btn"></i><br><br>
+<img src="http://s3.amazonaws.com/wbez-assets/curiouscity/FACTGENERATORcircle.png" height="121" width="122">
+<img src="http://s3.amazonaws.com/wbez-assets/curiouscity/CC_FINAL_WBEZwhite.gif" height="130" width="240"><br>
+			
+			
 		</div>
+	
+		
 		<div class="card">
 			{% include "%s.html"|format(data.Template) ignore missing %}
 		</div>
-	</div>
+	
 
 <div class="modal fade">
   <div class="modal-dialog">
@@ -19,8 +27,8 @@
         <h4 class="modal-title">What is the Curious City Fact Generator?</h4>
       </div>
       <div class="modal-body">
-        <p>Every story at Curious City is a collection of smaller parts -- individual statements, moments and findings we wanted to share with you that added up to a larger whole.</p>
         <p>Sometimes, though, we just want to see those bits on their own. That's why we created the Curious City Fact Generator.</p>
+        <p>Every story at Curious City is a collection of smaller parts -- individual statements, moments and findings we wanted to share with you that added up to a larger whole.</p>
         <p>We collected our favorite facts from Curious City stories -- how many bats species live in Chicago, how much it costs to clean the Bean -- and put them together in an easy to use app you can browse anywhere.</p>
         <p>Click the Curious Button and a new fact will generate. Find one you like and you can click to read the investigation it came from, or share it with your friends.</p>
         <p>We hope you like this as much as we do. Let us know what you think at curiouscity@wbez.org or @WBEZCuriousCity, or visit us as wbez.org/curiouscity.</p>
@@ -32,6 +40,7 @@
 {% endblock %}
 
 {% block scripts %}
+
 <script>
 var factID = '{{ factID }}';
 var count = '{{ factCount }}';
@@ -88,6 +97,10 @@ $( document ).ready(function() {
 				function(){$('.fa-refresh').css('color',newColor)},
 				function(){$('.fa-refresh').css('color','white')}
 			);
+			
+			$('.btn').css('color',newColor)
+				
+			
 		});
 		visited.push(entryID);
 		history.pushState({}, '', entryID);
@@ -96,8 +109,15 @@ $( document ).ready(function() {
 	$('.modal-btn').click(function(){
 		$('.modal').modal('toggle');
 	})
+	
+	$('.fa-camera').click(function(){
+		$('.fact-photo').toggle();  
+	})
 });
 
+
 </script>
+
+
 
 {% endblock %}
