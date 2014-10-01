@@ -1,22 +1,9 @@
-
-
 {% extends "base.html" %}
 {% block content %}
-
-
-
-<div class="header">
-<i class="fa fa-question-circle pull-right modal-btn"></i><br><br>
-<img src="http://s3.amazonaws.com/wbez-assets/curiouscity/FACTGENERATORcircle.png" height="121" width="122">
-<img src="http://s3.amazonaws.com/wbez-assets/curiouscity/CC_FINAL_WBEZwhite.gif" height="130" width="240"><br>
-			
-			
-		</div>
-	
 		
-		<div class="card">
-			{% include "%s.html"|format(data.Template) ignore missing %}
-		</div>
+<div class="card text-center">
+	{% include "%s.html"|format(data.Template) ignore missing %}
+</div>
 	
 
 <div class="modal fade">
@@ -49,7 +36,7 @@ backgrounds = ['#3584A2','#4cbde7','#64b278','#77b23e','#e7764c','#f0aa8f','#774
 
 $( document ).ready(function() {
 	var clicks = 0;
-	var give_us_money = '<div class="title front fact" id="{{data.ID}}">GIVE US MONEY<span class="next pull-right"><i class="fa fa-refresh text-center"></i>Still Curious?</span></div>'
+	var give_us_money = '<div class="title front fact" id="{{data.ID}}">GIVE US MONEY</div><span class="next pull-right"><i class="fa fa-refresh text-center"></i>Still Curious?</span>'
 	var visited = new Array();
 	visited.push(factID);
 
@@ -57,11 +44,12 @@ $( document ).ready(function() {
 	$(document).on( 'click', '.next', function(e) {
 		clicks++;
 		newColor = backgrounds[Math.floor((Math.random()*backgrounds.length))];
-		console.log(newColor);
 		$('body,.modal-content').css({
         	'background-color': newColor
     	});
-		$('.fact').fadeOut(250, function(){
+		$('.fact').animate({
+    		opacity:0, 
+    	}, 250, function(){
 			changeFact();
 		});
 	});
@@ -99,8 +87,18 @@ $( document ).ready(function() {
 			);
 			
 			$('.btn').css('color',newColor)
+
+			$('.fa-camera').click(function(){
+				console.log('photo time');
+				$('.fact-photo').toggle();  
+				$('.fact').toggle();
+			})
+
+			$('.fact').flowtype({
+			   minimum : 768,
+			   maximum : 1200
+			});
 				
-			
 		});
 		visited.push(entryID);
 		history.pushState({}, '', entryID);
@@ -111,8 +109,14 @@ $( document ).ready(function() {
 	})
 	
 	$('.fa-camera').click(function(){
-		$('.fact-photo').toggle();  
+		console.log('photo time');
+		$('.fact-photo').toggle();
+		$('.fact').toggle();
 	})
+	$('.fact').flowtype({
+	   minimum : 768,
+	   maximum : 1200
+	});
 });
 
 
