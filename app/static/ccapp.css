@@ -3,6 +3,7 @@ body {
 	color: white;
 	transition: background 0.2s, color 0.2s;
 	background-color: #3584A2;
+	height:100%;
 }
 
 .btn {
@@ -10,19 +11,18 @@ body {
 	color: #3584A2;
 	transition: background 0.2s, color 0.2s;
 	font-weight: bold;
-	font-size: 20pt;
+	font-size: 12pt;
 	border-radius: 1%;
 	cursor: pointer;
 }
 
 .fa {
 	font-size: 24px;
-	width: 30px;
-	height: 30px;
 }
 
 .fact-photo {
 	display: none;
+	margin-bottom: 10px;
 }
 
 .header {
@@ -33,6 +33,10 @@ body {
 	padding-left: 10px;
 	height: 30px;
 	background-color: #333;
+}
+
+.header .fa {
+	margin-right: 10px;
 }
 
 .logo {
@@ -51,7 +55,7 @@ a {
 	position: absolute;
 	bottom: 0px;
 	left: 0px;
-	font-size: 40px;
+	font-size: 20px;
 	background-color: #333;
 	transition: color 0.2s, color 0.2s;
 	width: 100%;
@@ -102,4 +106,45 @@ a {
 	width:100%;
 	padding-top: 10px;
 	font-size: 3em;
+}
+
+.social a:hover, .fa-camera:hover {
+	color:#333;
+}
+
+.social .fa {
+	margin: 10px;
+}
+
+/*Media queries*/
+
+/* Small devices (tablets, 768px and up) */
+@media (min-width: 768px) {
+	.btn {
+		font-size: 20px;
+	}
+	.next, .social .fa {
+		font-size: 32px;
+	}
+	.logo img {
+		height:100px;
+	}
+}
+
+/* Medium devices (desktops, 992px and up) */
+@media (min-width: 992px) {
+	.btn {
+		font-size: 30px;
+	}
+	.next, .social .fa {
+		font-size: 40px;
+	}
+	.logo img {
+		height:120px;
+	}
+}
+
+/* Large devices (large desktops, 1200px and up) */
+@media (min-width: 992px) {
+
 }

@@ -90,6 +90,7 @@ $( document ).ready(function() {
 
 			$('.fa-camera').click(function(){
 				console.log('photo time');
+				resizePhoto();
 				$('.fact-photo').toggle();  
 				$('.fact').toggle();
 			})
@@ -110,6 +111,7 @@ $( document ).ready(function() {
 	
 	$('.fa-camera').click(function(){
 		console.log('photo time');
+		resizePhoto();
 		$('.fact-photo').toggle();
 		$('.fact').toggle();
 	})
@@ -117,6 +119,21 @@ $( document ).ready(function() {
 	   minimum : 768,
 	   maximum : 1200
 	});
+
+	var resizePhoto = function () {
+		var cwidth = $('.container').width();
+		var cheight = $(window).height() - $('.header').outerHeight( true ) - $('.logo').outerHeight( true ) - $('.next').outerHeight( true ) - $('.social').outerHeight( true );
+		var ratio = $('.fact-photo').height()/$('.fact-photo').width();
+		console.log("Width, height and ratio are "+cwidth,cheight,ratio);
+		if (cheight > cwidth) {
+			$('.fact-photo').width(cwidth);
+			$('.fact-photo').height(cwidth*ratio);
+		} else {
+			$('.fact-photo').width(cheight/ratio);
+			$('.fact-photo').height(cheight);
+		}
+	};
+
 });
 
 
