@@ -1,7 +1,23 @@
 <div class="fact picture" id="{{data.ID}}">
 	{%if data.FactText %}{{data.FactText}}{% endif %}
-    {%if data.Image %}<i class="fa fa-camera"></i><br>
+    {%if data.Image %}<i class="fa fa-camera" data-toggle="modal" data-target="#photoModal"></i><br>{% endif %}
 </div>
-<img src="{{data.Image}}" class="img-responsive fact-photo" alt="Responsive image" />{% endif %}
 {% include 'social.html' %}
 {% include 'footer.html' %}
+
+<!-- Photo Modal -->
+<div class="modal fade" id="photoModal" tabindex="-1" role="dialog" aria-labelledby="photoModal" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="photoModalLabel">Modal title</h4>
+      </div>
+      <div class="modal-body">
+        <img src="{{data.Image}}" class="img-responsive fact-photo" alt="Responsive image" />
+      </div>
+      <div class="modal-footer">
+      </div>
+    </div>
+  </div>
+</div>
