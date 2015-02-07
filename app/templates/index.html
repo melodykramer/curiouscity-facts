@@ -116,10 +116,11 @@ $( document ).ready(function() {
 				$('.fact').toggle();
 			})
 
-			$('.fact').flowtype({
-			   minimum : 768,
-			   maximum : 1200
-			});
+			// $('.fact').flowtype({
+			//    minimum : 768,
+			//    maximum : 1200,
+			//    fontRatio : 30
+			// });
 				
 		});
 		visited.push(entryID);
@@ -136,10 +137,20 @@ $( document ).ready(function() {
 	// 	$('.fact-photo').toggle();
 	// 	$('.fact').toggle();
 	// })
-	$('.fact').flowtype({
-	   minimum : 768,
-	   maximum : 1200
-	});
+	// $('.fact').flowtype({
+	//    minimum : 480,
+	//    maximum : 1200,
+	// });
+
+	var resizeText = function() {
+		var cheight = $(window).height() - $('.header').outerHeight( true ) - $('.logo').outerHeight( true ) - $('.social').outerHeight( true ) - $('.social').outerHeight( true );
+		console.log($('.fact').outerHeight()+' '+cheight+' '+$('.fact').css('font-size'));
+	    while( $('.fact').outerHeight() > cheight && cheight > 0) {
+	        $('.fact').css('font-size', (parseInt($('.fact').css('font-size')) - 1) + "px" );
+	    }
+	};
+
+	resizeText();
 
 	var resizePhoto = function () {
 		var cwidth = $('.container').width();
@@ -158,6 +169,10 @@ $( document ).ready(function() {
 	$('.initiator').on('mouseenter mouseleave', function(e) {
 	    $('.receiver').trigger(e.type);
 	})
+
+	$( window ).resize(function() {
+		resizeText();
+	});
 
 });
 

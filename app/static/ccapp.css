@@ -40,7 +40,7 @@ body {
 }
 
 .logo {
-	margin: 30px;
+	margin: 45px 10px 10px 10px;
 }
 
 .logo img {
@@ -69,7 +69,7 @@ a {
 
 .fact {
 	font-size: 3em;
-	margin:25px;
+	margin:10px;
 }
 
 .fa-refresh {
@@ -129,6 +129,9 @@ a {
 	.logo img {
 		height:100px;
 	}
+	.fact {
+		margin:15px;
+	}
 }
 
 /* Medium devices (desktops, 992px and up) */
@@ -142,9 +145,15 @@ a {
 	.logo img {
 		height:120px;
 	}
+	.fact {
+		margin:20px;
+	}
 }
 
 /* Large devices (large desktops, 1200px and up) */
 @media (min-width: 992px) {
+	.fact {
+		margin:25px;
+	}
 
 }
