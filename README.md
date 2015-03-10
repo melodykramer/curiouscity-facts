@@ -13,7 +13,7 @@ Clone this repo to your local machine. We recommend starting a new python Virtua
 ```
 git clone git@github.com:wbez/curiouscity-facts.git
 cd curiouscity-facts
-mkvirtualenv curiouscity-facts
+mkvirtualenv curiouscity-facts --python=/usr/bin/python2.7
 ```
 
 The virtual environment starts up automatically on creation, but to activate it in the future just use:
