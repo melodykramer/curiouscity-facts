@@ -4,7 +4,6 @@ from app import app
 
 JSON_DATA = 'app/data/facts.json'
 app.config.from_object(__name__)
-app.debug=True
 
 def import_data():
     f = open(app.config['JSON_DATA'], 'r')
