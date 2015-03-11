@@ -4,4 +4,4 @@ execfile(activate_this, dict(__file__=activate_this))
 import sys
 sys.path.insert(0, '/srv/curiouscity-facts')
 
-from app import app as application
+from curiouscity-facts import app as application
