@@ -4,6 +4,7 @@ from app import app
 
 JSON_DATA = 'app/data/facts.json'
 app.config.from_object(__name__)
+app.debug=True
 
 def import_data():
     f = open(app.config['JSON_DATA'], 'r')
@@ -61,4 +62,4 @@ def post_html(id):
 
 
 if __name__ == '__main__':
-    app.run(debug = True)
+    app.run()
