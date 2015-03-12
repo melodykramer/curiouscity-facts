@@ -15,7 +15,7 @@
       </div>
       <div class="modal-body">
       	<p>The fact generator is produced through WBEZ’s Curious City, an ongoing project that answers the public’s questions about Chicago, the region and its people.</p>
-      	
+
         <p>Often, the stories are comprehensive, providing a lot of context, history and perspective. But sometimes we find that short, juicy snippets really grab your attention.</p>
 
 		<p>The fact generator is where we collect the best of these snippets — how many bats species live in Chicago, how much it costs to clean the Bean sculpture downtown — and put them together in a fun app you can browse anywhere.</p>
@@ -61,7 +61,6 @@ backgrounds = ['#3584A2','#4cbde7','#64b278','#77b23e','#e7764c','#f0aa8f','#774
 
 $( document ).ready(function() {
 	var clicks = 0;
-	var give_us_money = '<div class="title front fact" id="{{data.ID}}">GIVE US MONEY</div><span class="next pull-right"><i class="fa fa-refresh text-center"></i>Still Curious?</span>'
 	var visited = new Array();
 	visited.push(factID);
 
@@ -85,8 +84,7 @@ $( document ).ready(function() {
 			visited = [];
 		};
 		if ((clicks % 5) == 0 && clicks > 0) {
-			history.pushState({}, '', "give_us_money");
-			$('.card').html(give_us_money);
+			updateTemplate('donate')
 		} else {
 			getNewFact();
 		};
@@ -95,7 +93,7 @@ $( document ).ready(function() {
 	// Calls for a new fact, checks if it's already been seen. If not, update the template, if so, get another
 	function getNewFact(callback){
 		$.get('/random',function(data){
-			if ($.inArray(data,visited) != -1) {
+			if ($.inArray(data,visited) != -1 || data == 'donate') {
 				getNewFact();
 			} else {
 				updateTemplate(data);
@@ -159,11 +157,12 @@ $( document ).ready(function() {
 	var resizeText = function() {
 		var cheight = $(window).height() - $('.header').outerHeight( true ) - $('.logo').outerHeight( true ) - $('.social').outerHeight( true ) - $('.social').outerHeight( true );
 
+		// Resize if text is bigger than div
 	    while( ($('.fact').outerHeight() > cheight) && (cheight > 0)) {
 	        $('.fact').css('font-size', (parseInt($('.fact').css('font-size')) - 1) + "px" );
 	    }
-
-	    while( ($('.fact').outerHeight() < cheight-100) && (cheight > 0)) {
+	    // Resize if text is smaller than div - buffer
+	    while( ($('.fact').outerHeight() < cheight-100) && (cheight > 0) && ($('.fact').css('font-size')<72)) {
 	        $('.fact').css('font-size', (parseInt($('.fact').css('font-size')) + 1) + "px" );
 	    }
 	};
