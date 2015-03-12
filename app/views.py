@@ -1,8 +1,10 @@
-import json, random
+import json, random, os
 from flask import Flask, request, session, g, redirect, url_for, abort, render_template, flash, jsonify
 from app import app
 
-JSON_DATA = './app/data/facts.json'
+current_dir = os.path.dirname(__file__)
+
+JSON_DATA = os.path.join(current_dir,'data','facts.json')
 app.config.from_object(__name__)
 
 def import_data():
