@@ -27,7 +27,25 @@ Your new virtual environment comes with the pip python package manager. All libr
 The repo comes with a list of required libraries in requirements.txt. To install all of these, navigate to your project directory and run:
 
 ```
-pip install -r requirements.txt to get all the needed packages.
+pip install -r requirements.txt
+```
+to get all the needed packages.
+
+## Apache configuration
+
+```
+<VirtualHost *:80>
+        ServerName your.host.name.net		# ccfacts.wbez.org
+        DocumentRoot /path/to/dir/ 			# /srv/curiouscity-facts/
+        WSGIScriptAlias / /path/to/wsgi		# /srv/curiouscity-facts/curiouscity-facts.wsgi
+        <Directory /path/to/dir/>			# /srv/curiouscity-facts/
+                Order allow,deny
+                Allow from all
+        </Directory>
+        ErrorLog ${APACHE_LOG_DIR}/cc-facts-error.log
+        LogLevel info
+        CustomLog ${APACHE_LOG_DIR}/cc-facts-access.log combined
+</VirtualHost>
 ```
 
 ## How to start the app
