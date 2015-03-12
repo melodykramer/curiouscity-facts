@@ -100,6 +100,67 @@ a {
 	cursor: pointer;
 }
 
+/* photo modal styles*/
+#photoModal .modal-content {
+	background-color: #3584A2;
+}
+
+#photoModal .modal-btn {
+	cursor: pointer;
+}
+
+#photoModal .modal-dialog {
+	width: 100%;
+	height: 100%;
+	padding: 0;
+	margin:0 auto;
+}
+
+#photoModal .modal-content {
+	height: 100%;
+	max-width:100%;
+	border-radius: 0;
+	background-repeat:no-repeat;
+	background-position:center; 
+	background-size: contain;
+	background-color: rgba(51, 51, 51, 0);
+}
+
+#photoModal .modal-body {
+    display: block;
+    height: 0;
+    overflow:visible;
+}
+
+#photoModal .close {
+	font-size:48px;
+	color:#fff;
+	opacity:.75;
+	margin:10px 10px;
+}
+
+#photoModal .modal-caption {
+	width:100%;
+	background-color: rgba(51, 51, 51, 0.5);
+	position:absolute;
+	bottom:0;
+}
+
+.caption-text {
+	width:90%;
+	padding:1em 0px;
+	color:#fff;
+	font-family:'Roboto',Arial,sans-serif;
+	line-height: 36px;
+	font-size:24px;
+	text-align:center;
+	margin-left: auto;
+    margin-right: auto;
+    -webkit-text-shadow: 2px 2px 2px #333;
+	-moz-text-shadow:    2px 2px 2px #333;
+	text-shadow:         2px 2px 2px #333;
+}
+
 .footer {
 	position: absolute;
 	bottom: 0px;
@@ -127,7 +188,7 @@ a {
 		font-size: 32px;
 	}
 	.logo img {
-		height:100px;
+		height:90px;
 	}
 	.fact {
 		margin:15px;
@@ -143,7 +204,7 @@ a {
 		font-size: 40px;
 	}
 	.logo img {
-		height:120px;
+		height:100px;
 	}
 	.fact {
 		margin:20px;

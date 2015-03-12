@@ -14,11 +14,15 @@
         <h4 class="modal-title">What is the Curious City Fact Generator?</h4>
       </div>
       <div class="modal-body">
-        <p>Sometimes, though, we just want to see those bits on their own. That's why we created the Curious City Fact Generator.</p>
-        <p>Every story at Curious City is a collection of smaller parts -- individual statements, moments and findings we wanted to share with you that added up to a larger whole.</p>
-        <p>We collected our favorite facts from Curious City stories -- how many bats species live in Chicago, how much it costs to clean the Bean -- and put them together in an easy to use app you can browse anywhere.</p>
-        <p>Click the Curious Button and a new fact will generate. Find one you like and you can click to read the investigation it came from, or share it with your friends.</p>
-        <p>We hope you like this as much as we do. Let us know what you think at curiouscity@wbez.org or @WBEZCuriousCity, or visit us as wbez.org/curiouscity.</p>
+      	<p>The fact generator is produced through WBEZ’s Curious City, an ongoing project that answers the public’s questions about Chicago, the region and its people.</p>
+      	
+        <p>Often, the stories are comprehensive, providing a lot of context, history and perspective. But sometimes we find that short, juicy snippets really grab your attention.</p>
+
+		<p>The fact generator is where we collect the best of these snippets — how many bats species live in Chicago, how much it costs to clean the Bean sculpture downtown — and put them together in a fun app you can browse anywhere.</p>
+
+		<p>Click the Still Curious button to generate a new fact. Find one you like and you can click to read the investigation it came from, or share it with your friends.</p>
+		
+		<p>Love something you see? Got a beef with one of our facts? Or, just want to learn more? Hit us up: curiouscity@wbez.org, or @WBEZCuriousCity, or visit our website.</p>
       </div>
     </div><!-- /.modal-content -->
   </div><!-- /.modal-dialog -->
@@ -109,12 +113,12 @@ $( document ).ready(function() {
 			
 			$('.btn').css('color',newColor)
 
-			$('.fa-camera').click(function(){
-				console.log('photo time');
-				resizePhoto();
-				$('.fact-photo').toggle();  
-				$('.fact').toggle();
-			})
+			// $('.fa-camera').click(function(){
+			// 	console.log('photo time');
+			// 	resizePhoto();
+			// 	$('.fact-photo').toggle();  
+			// 	$('.fact').toggle();
+			// })
 
 			// $('.fact').flowtype({
 			//    minimum : 768,
@@ -144,11 +148,23 @@ $( document ).ready(function() {
 	//    maximum : 1200,
 	// });
 
+	$('.fa-camera').click(function(){
+		var image = $(this).data("image") 
+		var caption = $(this).find('.main-caption').text();
+		$('#photoModal .modal-content').css('background-image', 'url(' + image + ')');
+		$('.caption-text').text(caption);
+		$('#photoModal').modal()
+	});
+
 	var resizeText = function() {
 		var cheight = $(window).height() - $('.header').outerHeight( true ) - $('.logo').outerHeight( true ) - $('.social').outerHeight( true ) - $('.social').outerHeight( true );
-		console.log($('.fact').outerHeight()+' '+cheight+' '+$('.fact').css('font-size'));
-	    while( $('.fact').outerHeight() > cheight && cheight > 0) {
+
+	    while( ($('.fact').outerHeight() > cheight) && (cheight > 0)) {
 	        $('.fact').css('font-size', (parseInt($('.fact').css('font-size')) - 1) + "px" );
+	    }
+
+	    while( ($('.fact').outerHeight() < cheight-100) && (cheight > 0)) {
+	        $('.fact').css('font-size', (parseInt($('.fact').css('font-size')) + 1) + "px" );
 	    }
 	};
 
