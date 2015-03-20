@@ -83,7 +83,7 @@ a {
 	height: 50px;
 }
  
-.fa-refresh:hover {
+.footer:hover .fa-refresh {
     background: rgba(255,255,255,1);
 	color: #3584A2;
   	-webkit-animation: spin 2s infinite linear;

@@ -104,7 +104,7 @@ $( document ).ready(function() {
 	// Take a fact ID and update the template
 	function updateTemplate(entryID){
 		$('.card').load("/html/"+entryID,function(){
-			$(".fa-refresh").hover(
+			$(".fa-refresh, .footer").hover(
 				function(){$('.fa-refresh').css('color',newColor)},
 				function(){$('.fa-refresh').css('color','white')}
 			);
@@ -128,7 +128,7 @@ $( document ).ready(function() {
 				
 		});
 		visited.push(entryID);
-		history.pushState({}, '', entryID);
+		history.pushState({path:entryID}, '', entryID);
 	};
 
 	$('.modal-btn').click(function(){
@@ -189,6 +189,10 @@ $( document ).ready(function() {
 
 	$( window ).resize(function() {
 		resizeText();
+	});
+
+	window.addEventListener('popstate', function(event) {
+	  console.log(event.state);
 	});
 
 });

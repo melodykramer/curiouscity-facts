@@ -2,7 +2,7 @@
 
 The Curious City Fact Generator pulls a random fact from a Google Doc the team is keeping up (technically json based on that spreadsheet). The backend is a Flask app which powers a small API.
 
-## Assumptions
+## Assumptions for local development
 * You are running OSX.
 * You are using Python 2.7. (Probably the version that came with OSX.)
 * You have [virtualenv](https://pypi.python.org/pypi/virtualenv) and [virtualenvwrapper](https://pypi.python.org/pypi/virtualenvwrapper) installed and working.
@@ -22,7 +22,7 @@ The virtual environment starts up automatically on creation, but to activate it 
 workon curiouscity-facts
 ```
 
-Your new virtual environment comes with the pip python package manager. All libraries installed with the virtualenv active will be contained within the local environment and not available globally. 
+Your new virtual environment comes with the pip python package manager. All libraries installed with the virtualenv active will be contained within the local environment and not available globally. This keeps different dependencies for different projects separate so there aren't any version conflicts.
 
 The repo comes with a list of required libraries in requirements.txt. To install all of these, navigate to your project directory and run:
 
@@ -30,6 +30,16 @@ The repo comes with a list of required libraries in requirements.txt. To install
 pip install -r requirements.txt
 ```
 to get all the needed packages.
+
+## How to start the app locally
+
+From the terminal, run:
+
+```
+python run.py 
+```
+
+Then go to http://127.0.0.1:5000/ to see your shiny new app.
 
 ## Apache configuration
 
@@ -48,15 +58,19 @@ to get all the needed packages.
 </VirtualHost>
 ```
 
-## How to start the app
-
-From the terminal, run:
-
+## WSGI configuration
+Put this in curiouscity-facts.wsgi in the app root
 ```
-python run.py 
-```
+activate_this = '/home/ubuntu/.virtenvs/curiouscity-facts/bin/activate_this.py'
+execfile(activate_this, dict(__file__=activate_this))
 
-Then go to http://127.0.0.1:5000/ to see your shiny new app.
+import sys, logging
+
+logging.basicConfig(stream=sys.stderr)
+sys.path.insert(0, '/srv/curiouscity-facts')
+
+from app import app as application
+```
 
 ## Where everything lives
 
