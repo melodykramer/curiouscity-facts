@@ -162,12 +162,12 @@ $( document ).ready(function() {
 		var cheight = $(window).height() - $('.header').outerHeight( true ) - $('.logo').outerHeight( true ) - $('.social').outerHeight( true ) - $('.social').outerHeight( true );
 
 		// Resize if text is bigger than div
-	    while( ($('.fact').outerHeight() > cheight) && (cheight > 0)) {
+	    while( ($('.fact').outerHeight() > cheight) && (cheight > 0) && (parseInt($('.fact').css('font-size'))>8)) {
 	    	console.log('resize big');
 	        $('.fact').css('font-size', (parseInt($('.fact').css('font-size')) - 1) + "px" );
 	    }
 	    // Resize if text is smaller than div - buffer
-	    while( ($('.fact').outerHeight() < cheight-50) && (cheight > 0) && (parseInt($('.fact').css('font-size'))<72)) {
+	    while( ($('.fact').outerHeight() < (cheight-72)) && (cheight > 0) && (parseInt($('.fact').css('font-size'))<72)) {
 	    	console.log('resize small');
 	        $('.fact').css('font-size', (parseInt($('.fact').css('font-size')) + 1) + "px" );
 	    }
