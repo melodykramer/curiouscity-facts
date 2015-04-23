@@ -167,6 +167,7 @@ a {
 	width:100%;
 	padding-top: 10px;
 	font-size: 3em;
+	cursor:pointer;
 }
 
 .social a:hover, .fa-camera:hover {
