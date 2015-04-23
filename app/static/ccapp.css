@@ -12,8 +12,12 @@ body {
 	transition: background 0.2s, color 0.2s;
 	font-weight: bold;
 	font-size: 12pt;
-	border-radius: 1%;
+	border-radius: 5px;
 	cursor: pointer;
+}
+
+.story.btn {
+	font-size: 16px;
 }
 
 .fa {
@@ -44,7 +48,7 @@ body {
 }
 
 .logo img {
-	height:80px;
+	height:50px;
 }
 
 a {
@@ -62,6 +66,9 @@ a {
 	padding: 20px;
 }
 
+.social .fa {
+	font-size: 20px;
+}
 
 .container {
 	width: 100%;
@@ -172,6 +179,7 @@ a {
 
 .social a:hover, .fa-camera:hover {
 	color:#333;
+	transition: background 0.2s, color 0.2s;
 }
 
 .social .fa {
@@ -185,8 +193,14 @@ a {
 	.btn {
 		font-size: 20px;
 	}
-	.next, .social .fa {
+	.social .fa {
 		font-size: 32px;
+	}
+	.next {
+		font-size: 44px;
+	}
+	.story.btn {
+		font-size: 20px;
 	}
 	.logo img {
 		height:90px;
@@ -201,7 +215,7 @@ a {
 	.btn {
 		font-size: 30px;
 	}
-	.next, .social .fa {
+	.next, .social .fa, {
 		font-size: 40px;
 	}
 	.logo img {
