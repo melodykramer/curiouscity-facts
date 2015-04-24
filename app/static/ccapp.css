@@ -14,10 +14,12 @@ body {
 	font-size: 12pt;
 	border-radius: 5px;
 	cursor: pointer;
+	padding:5px 10px;
 }
 
 .story.btn {
-	font-size: 16px;
+	font-size: 14px;
+	transition: background 0.2s, color 0.2s;
 }
 
 .fa {
@@ -63,11 +65,11 @@ a {
 	background-color: #333;
 	transition: color 0.2s, color 0.2s;
 	width: 100%;
-	padding: 20px;
+	padding: 15px;
 }
 
 .social .fa {
-	font-size: 20px;
+	font-size: 24px;
 }
 
 .container {
@@ -172,7 +174,6 @@ a {
 	position: absolute;
 	bottom: 0px;
 	width:100%;
-	padding-top: 10px;
 	font-size: 3em;
 	cursor:pointer;
 }
@@ -197,10 +198,10 @@ a {
 		font-size: 32px;
 	}
 	.next {
-		font-size: 44px;
+		font-size: 36px;
 	}
 	.story.btn {
-		font-size: 20px;
+		font-size: 18px;
 	}
 	.logo img {
 		height:90px;
@@ -216,7 +217,6 @@ a {
 		font-size: 30px;
 	}
 	.next, .social .fa, {
-		font-size: 40px;
 	}
 	.logo img {
 		height:100px;

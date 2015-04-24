@@ -4,6 +4,7 @@
 <div class="card text-center">
 	{% include "%s.html"|format(data.Template) ignore missing %}
 </div>
+{% include 'footer.html' %}
 	
 
 <div class="modal fade">
@@ -68,9 +69,6 @@ $( document ).ready(function() {
 	$(document).on( 'click', '.next', function(e) {
 		clicks++;
 		newColor = backgrounds[Math.floor((Math.random()*backgrounds.length))];
-		$('body,.modal-content').css({
-        	'background-color': newColor
-    	});
 		$('.fact').animate({
     		opacity:0, 
     	}, 250, function(){
@@ -114,6 +112,10 @@ $( document ).ready(function() {
 			);
 			
 			$('.btn').css('color',newColor)
+			$('body,.modal-content').css({
+	        	'background-color': newColor
+	    	});
+	    	$('.next').trigger('mouseenter');
 
 			// $('.fa-camera').click(function(){
 			// 	console.log('photo time');
@@ -159,15 +161,19 @@ $( document ).ready(function() {
 
 	var resizeText = function() {
 
-		var cheight = $(window).height() - $('.header').outerHeight( true ) - $('.logo').outerHeight( true ) - $('.social').outerHeight( true ) - $('.social').outerHeight( true );
+
+		var cheight = $(window).height() - $('.header').outerHeight( true ) - $('.logo').outerHeight( true ) - $('.social').outerHeight( true ) - $('.next').outerHeight( true );
+
+		heightBuffer = cheight-(cheight/3);
+		console.log(cheight);
 
 		// Resize if text is bigger than div
-	    while( ($('.fact').outerHeight() > cheight) && (cheight > 0) && (parseInt($('.fact').css('font-size'))>8)) {
+	    while( ($('.fact').outerHeight() > heightBuffer) && (cheight > 0) && (parseInt($('.fact').css('font-size'))>8)) {
 	    	console.log('resize big');
 	        $('.fact').css('font-size', (parseInt($('.fact').css('font-size')) - 1) + "px" );
 	    }
 	    // Resize if text is smaller than div - buffer
-	    while( ($('.fact').outerHeight() < (cheight-72)) && (cheight > 0) && (parseInt($('.fact').css('font-size'))<72)) {
+	    while( ($('.fact').outerHeight() < heightBuffer) && (cheight > 0) && (parseInt($('.fact').css('font-size'))<72)) {
 	    	console.log('resize small');
 	        $('.fact').css('font-size', (parseInt($('.fact').css('font-size')) + 1) + "px" );
 	    }
@@ -196,7 +202,6 @@ $( document ).ready(function() {
 	})
 
 	$( window ).resize(function() {
-
 		resizeText();
 	});
 
@@ -204,9 +209,10 @@ $( document ).ready(function() {
 	  console.log(event.state);
 	  updateTemplate(event.state.path)
 	});
-
+	$('.next').focus(function(){
+		console.log('next focus');
+	});
 });
-
 
 </script>
 
