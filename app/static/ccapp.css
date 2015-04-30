@@ -181,7 +181,7 @@ a {
 	cursor:pointer;
 }
 
-.story:hover, .fa:hover {
+.story:hover, .social .fa:hover {
 	background-color: #fff;
 	color: #3584A2;
 	text-decoration: none;

@@ -120,6 +120,13 @@ $( document ).ready(function() {
 	    	});
 	    	$('.next').trigger('mouseenter');
 
+	    	$('.fa-camera').click(function(){
+				console.log('photo click');
+				var image = $(this).data("image") 
+				$('#photoModal .modal-content').css('background-image', 'url(' + image + ')');
+				$('#photoModal').modal()
+			});
+
 			// $('.fa-camera').click(function(){
 			// 	console.log('photo time');
 			// 	resizePhoto();
@@ -155,10 +162,9 @@ $( document ).ready(function() {
 	// });
 
 	$('.fa-camera').click(function(){
+		console.log('photo click');
 		var image = $(this).data("image") 
-		var caption = $(this).find('.main-caption').text();
 		$('#photoModal .modal-content').css('background-image', 'url(' + image + ')');
-		$('.caption-text').text(caption);
 		$('#photoModal').modal()
 	});
 
