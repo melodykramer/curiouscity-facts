@@ -6,24 +6,26 @@ body {
 	height:100%;
 }
 
-.btn {
-	background-color: rgba(255,255,255,1);	
-	color: #3584A2;
+.story {
+	/*background-color: rgba(255,255,255,1);	*/
+	color: #fff;
 	transition: background 0.2s, color 0.2s;
 	font-weight: bold;
 	font-size: 12pt;
 	border-radius: 5px;
+	border: 2px solid #fff;
 	cursor: pointer;
 	padding:5px 10px;
-}
-
-.story.btn {
 	font-size: 14px;
-	transition: background 0.2s, color 0.2s;
 }
 
 .fa {
 	font-size: 24px;
+	border: 2px solid rgba(0,0,0,0);
+}
+
+.fa-question-circle {
+	cursor:pointer;
 }
 
 .fact-photo {
@@ -79,6 +81,7 @@ a {
 .fact {
 	font-size: 3em;
 	margin:10px;
+	text-align: left;
 }
 
 .fa-refresh {
@@ -178,29 +181,31 @@ a {
 	cursor:pointer;
 }
 
-.social a:hover, .fa-camera:hover {
-	color:#333;
-	transition: background 0.2s, color 0.2s;
+.story:hover, .fa:hover {
+	background-color: #fff;
+	color: #3584A2;
+	text-decoration: none;
+	transition: background 0.2s, color 0.2s, border 0.2s;
+	border: 2px solid #fff;
+	border-radius: 4px;
 }
 
 .social .fa {
 	margin: 10px;
+	padding: 2px;
 }
 
 /*Media queries*/
 
 /* Small devices (tablets, 768px and up) */
 @media (min-width: 768px) {
-	.btn {
-		font-size: 20px;
-	}
 	.social .fa {
 		font-size: 32px;
 	}
 	.next {
 		font-size: 36px;
 	}
-	.story.btn {
+	.story {
 		font-size: 18px;
 	}
 	.logo img {
@@ -213,8 +218,9 @@ a {
 
 /* Medium devices (desktops, 992px and up) */
 @media (min-width: 992px) {
-	.btn {
-		font-size: 30px;
+	.story {
+		font-size: 20px;
+		border-size:4px;
 	}
 	.next, .social .fa, {
 	}

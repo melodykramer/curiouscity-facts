@@ -111,7 +111,10 @@ $( document ).ready(function() {
 				function(){$('.fa-refresh').css('color','white')}
 			);
 			
-			$('.btn').css('color',newColor)
+			$(".story").hover(
+				function(){$('.story').css('color',newColor)},
+				function(){$('.story').css('color','white')}
+			);
 			$('body,.modal-content').css({
 	        	'background-color': newColor
 	    	});
@@ -209,6 +212,7 @@ $( document ).ready(function() {
 	  console.log(event.state);
 	  updateTemplate(event.state.path)
 	});
+	
 	$('.next').focus(function(){
 		console.log('next focus');
 	});
