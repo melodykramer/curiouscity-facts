@@ -115,6 +115,14 @@ $( document ).ready(function() {
 				function(){$('.story').css('color',newColor)},
 				function(){$('.story').css('color','white')}
 			);
+			$(".social .fa").hover(
+				function(){$(this).css('color',newColor)},
+				function(){$(this).css('color','white')}
+			);
+			$(".fa-camera").hover(
+				function(){$(this).css('color',newColor)},
+				function(){$(this).css('color','white')}
+			);
 			$('body,.modal-content').css({
 	        	'background-color': newColor
 	    	});
@@ -170,13 +178,13 @@ $( document ).ready(function() {
 
 	var resizeText = function() {
 
-		var cheight = $(window).height() - $('.header').outerHeight( true ) - $('.logo').outerHeight( true ) - $('.social').outerHeight( true ) - $('.next').outerHeight( true );
+		var cheight = $(window).outerHeight() - $('.header').outerHeight( true ) - $('.logo').outerHeight( true ) - $('.social').outerHeight( true ) - $('.next').outerHeight( true );
 
-		heightBuffer = cheight-(cheight/3);
+		heightBuffer = cheight-(cheight/4);
 		console.log(cheight);
 
 		// Resize if text is bigger than div
-	    while( ($('.fact').outerHeight() > heightBuffer) && (cheight > 0) && (parseInt($('.fact').css('font-size'))>8)) {
+	    while( ($('.fact').outerHeight() > cheight) && (cheight > 0) && (parseInt($('.fact').css('font-size'))>8)) {
 	    	console.log('resize big');
 	        $('.fact').css('font-size', (parseInt($('.fact').css('font-size')) - 1) + "px" );
 	    }

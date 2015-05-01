@@ -19,6 +19,11 @@ body {
 	font-size: 14px;
 }
 
+.fa-question-circle {
+	font-size: 18px;
+	padding-top: 4px;
+}
+
 .social .fa {
 	font-size: 24px;
 	border: 2px solid rgba(0,0,0,0);
@@ -63,7 +68,7 @@ a {
 	position: absolute;
 	bottom: 0px;
 	left: 0px;
-	font-size: 20px;
+	font-size: 24px;
 	background-color: #333;
 	transition: color 0.2s, color 0.2s;
 	width: 100%;
@@ -80,7 +85,7 @@ a {
 
 .fact {
 	font-size: 3em;
-	margin:10px;
+	margin:0px 10px;
 	text-align: left;
 }
 
@@ -145,7 +150,7 @@ a {
 }
 
 #photoModal .close {
-	font-size:48px;
+	font-size:44px;
 	color:#fff;
 	opacity:.75;
 	margin:10px 10px;
@@ -181,7 +186,7 @@ a {
 	cursor:pointer;
 }
 
-.story:hover, .social .fa:hover {
+.story:hover, .social .fa:hover, .fa-camera:hover {
 	background-color: #fff;
 	color: #3584A2;
 	text-decoration: none;
@@ -190,9 +195,21 @@ a {
 	border-radius: 4px;
 }
 
-.social .fa {
+.fa-camera {
+	border: 2px solid rgba(0,0,0,0);
+}
+
+.social .fa, .fa-camera {
 	margin: 10px;
 	padding: 2px;
+}
+
+.social.donate {
+	margin-top: 20px;
+}
+
+.social.donate .story {
+	font-size: 24px;
 }
 
 /*Media queries*/
@@ -212,7 +229,7 @@ a {
 		height:90px;
 	}
 	.fact {
-		margin:15px;
+		margin:0px 10px;
 	}
 }
 
@@ -228,9 +245,8 @@ a {
 		height:100px;
 	}
 	.fact {
-		margin:20px;
+		margin:0px 10px;
 	}
-
 	.caption-text {
 		font-size: 16px;
 	}
@@ -239,7 +255,7 @@ a {
 /* Large devices (large desktops, 1200px and up) */
 @media (min-width: 992px) {
 	.fact {
-		margin:25px;
+		margin:0px 15px;
 	}
 
 }
