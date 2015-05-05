@@ -84,7 +84,9 @@ $( document ).ready(function() {
 		if ((clicks % 5) == 0 && clicks > 0) {
 			visited.push('donate');
 			history.pushState({path:'donate'}, '', 'donate');
-			updateTemplate('donate')
+			updateTemplate('donate');
+			// send ga pageview
+			ga('send', 'pageview', '/donate');
 		} else {
 			getNewFact();
 		};
@@ -99,6 +101,8 @@ $( document ).ready(function() {
 				visited.push(data);
 				history.pushState({path:data}, '', data);
 				updateTemplate(data);
+				// send ga pageview
+				ga('send', 'pageview', '/'+data);
 			}
 		});
 	};
@@ -153,6 +157,31 @@ $( document ).ready(function() {
 		});
 		
 	};
+	
+	$('.story').click(function() {
+		// send analytics event when clicking to full story or donation page
+		if (factID == "donate") {
+			gaLabel = "donate";
+		} else {
+			gaLabel =	"full story";		
+		}
+		ga('send', 'event', 'Curious City Facts', 'click', gaLabel, {'page': '/'+factID});
+	})
+	
+	$('.fa-twitter').click(function() {
+		// send analytics event when clicking to share via twitter
+		ga('send', 'event', 'Curious City Facts', 'click', 'twitter', {'page': '/'+factID});		
+	});
+	
+	$('.fa-facebook').click(function() {
+		// send analytics event when clicking to share via facebook
+		ga('send', 'event', 'Curious City Facts', 'click', 'facebook', {'page': '/'+factID});		
+	});	
+	
+	$('.fa-envelope').click(function() {
+		// send analytics event when clicking to share via email
+		ga('send', 'event', 'Curious City Facts', 'click', 'email', {'page': '/'+factID});		
+	});
 
 	$('.modal-btn').click(function(){
 		$('.modal').modal('toggle');
@@ -171,9 +200,11 @@ $( document ).ready(function() {
 
 	$('.fa-camera').click(function(){
 		console.log('photo click');
-		var image = $(this).data("image") 
+		var image = $(this).data("image"); 
 		$('#photoModal .modal-content').css('background-image', 'url(' + image + ')');
-		$('#photoModal').modal()
+		$('#photoModal').modal();
+		// send analytics event when clicking on image modal
+		ga('send', 'event', 'Curious City Facts', 'click', 'picture modal', {'page': '/'+factID});		
 	});
 
 	var resizeText = function() {
