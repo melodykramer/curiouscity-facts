@@ -34,15 +34,17 @@
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true"><i class="fa fa-times-circle"></i></span></button>
         <h4 class="modal-title" id="aboutModalLabel">What is the Curious City Fact Generator?</h4>
       </div>
       <div class="modal-body">
-        <p>Sometimes, though, we just want to see those bits on their own. That's why we created the Curious City Fact Generator.</p>
-        <p>Every story at Curious City is a collection of smaller parts -- individual statements, moments and findings we wanted to share with you that added up to a larger whole.</p>
-        <p>We collected our favorite facts from Curious City stories -- how many bats species live in Chicago, how much it costs to clean the Bean -- and put them together in an easy to use app you can browse anywhere.</p>
-        <p>Click the Curious Button and a new fact will generate. Find one you like and you can click to read the investigation it came from, or share it with your friends.</p>
-        <p>We hope you like this as much as we do. Let us know what you think at curiouscity@wbez.org or @WBEZCuriousCity, or visit us as wbez.org/curiouscity.</p>
+        <p>The fact generator is produced through <a href="http://www.wbez.org/curiouscity">WBEZ’s Curious City</a>, an ongoing project that answers the public’s questions about Chicago, the region and its people.</p>
+
+		<p>Our stories provide a lot of context, history and perspective, but we also love juicy factual snippets that grab your attention. The fact generator collects the best in a fun app you can browse anywhere.</p>
+
+		<p>Click the “Still Curious?” button to generate a new fact. Find one you want to know more about? Click “Full story” or other leads to learn more. Or, just share the fact with your friends.</p>
+	
+		<p>Love something you see? Got a beef with one of our facts? Want to learn more? Hit us up: write curiouscity@wbez.org or grab our attention on Twitter <a href="https://www.twitter.com/WBEZCuriousCity">@WBEZCuriousCity.</a></p>
       </div>
       <div class="modal-footer">
       </div>
@@ -105,6 +107,7 @@ $( document ).ready(function() {
 
 	// Take a fact ID and update the template
 	function updateTemplate(entryID){
+		console.log('updateTemplate');
 		$('.card').load("/html/"+entryID,function(){
 			$(".fa-refresh, .footer").hover(
 				function(){$('.fa-refresh').css('color',newColor)},

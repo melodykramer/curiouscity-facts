@@ -1,6 +1,7 @@
 import json, random, os
 from flask import Flask, request, session, g, redirect, url_for, abort, render_template, flash, jsonify
 from app import app
+from urllib import quote
 
 current_dir = os.path.dirname(__file__)
 
@@ -48,8 +49,9 @@ def posts(id):
 	# 		randFact = row
 
 	randFact = filter(lambda f: f['ID'] == id, g.data)
+	email = mailto(randFact[0]['FactText'])
 
-   	return render_template('index.html',data=randFact[0],factCount=g.count,factID=randFact[0]['ID'])
+   	return render_template('index.html',data=randFact[0],factCount=g.count,factID=randFact[0]['ID'],email=email)
 
 @app.route('/html/<id>')
 def post_html(id):
@@ -58,9 +60,20 @@ def post_html(id):
 		if row['ID'] == id:
 			randFact = row
 
-   	return render_template(randFact['Template']+'.html',data=randFact)
+	email = mailto(randFact['FactText'])
 
+   	return render_template(randFact['Template']+'.html',data=randFact,email=email)
 
+def mailto(fact):
+
+	body = """Hi!\n\nI was just flipping through Curious City's Fact Generator and learned this interesting thing about Chicago:\n%s\n\nThey've got more where that came from: """ % fact
+	
+	subject_parse = quote('Found a neat fact about Chicago for you')
+	body_parse = quote(body) 
+
+	email = "mailto:?subject=%s&body=%s" % (subject_parse,body_parse)
+
+	return email
 
 if __name__ == '__main__':
     app.run()
