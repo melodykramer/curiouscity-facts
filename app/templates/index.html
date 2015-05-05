@@ -145,12 +145,6 @@ $( document ).ready(function() {
 			// 	$('.fact').toggle();
 			// })
 
-			// $('.fact').flowtype({
-			//    minimum : 768,
-			//    maximum : 1200,
-			//    fontRatio : 30
-			// });
-
 			resizeText();
 				
 		});
@@ -160,17 +154,6 @@ $( document ).ready(function() {
 	$('.modal-btn').click(function(){
 		$('.modal').modal('toggle');
 	})
-	
-	// $('.fa-camera').click(function(){
-	// 	console.log('photo time');
-	// 	resizePhoto();
-	// 	$('.fact-photo').toggle();
-	// 	$('.fact').toggle();
-	// })
-	// $('.fact').flowtype({
-	//    minimum : 480,
-	//    maximum : 1200,
-	// });
 
 	$('.fa-camera').click(function(){
 		console.log('photo click');
@@ -192,7 +175,7 @@ $( document ).ready(function() {
 	        $('.fact').css('font-size', (parseInt($('.fact').css('font-size')) - 1) + "px" );
 	    }
 	    // Resize if text is smaller than div - buffer
-	    while( ($('.fact').outerHeight() < heightBuffer) && (cheight > 0) && (parseInt($('.fact').css('font-size'))<72)) {
+	    while( ($('.fact').outerHeight() < heightBuffer) && (cheight > 0) && (parseInt($('.fact').css('font-size'))<64)) {
 	    	console.log('resize small');
 	        $('.fact').css('font-size', (parseInt($('.fact').css('font-size')) + 1) + "px" );
 	    }
