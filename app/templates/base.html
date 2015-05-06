@@ -4,6 +4,8 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- CHARTBEAT -->
+    <script type="text/javascript">var _sf_startpt=(new Date()).getTime()</script>
     <title>Curious City Fact Generator</title>
 
     <link href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" rel="stylesheet">
@@ -14,17 +16,22 @@
       <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
 
-    <!-- IT'S A TAG! -->
-    <meta property="og:title" content="Curious City Fact Generator" />
-    <meta property="og:site name" content="WBEZ Curious City" />
-    <meta property="fb:page_id" content="13263980999" />
-    <meta property="og:url" content="http://www.wbez.org/curiouscity" />
-    <meta property="og:type" content="website" />
-    <meta property="og:description" content="" />
-
     <link href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
     <link href='http://fonts.googleapis.com/css?family=PT+Sans' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" type="text/css" href="static/ccapp.css">
+
+    {# Twitter #}
+    <meta name="twitter:card" content="">
+    <meta name="twitter:site" content="@wbezcuriouscity">
+    <meta name="twitter:image" content="" />
+
+    {# Facebook #}
+    <meta property="og:title" content="WBEZ Curious City Fact Generator" />
+    <meta property="og:url" content="http://curiousfacts.wbez.org" />
+    <meta property="og:type" content="website" />
+    <meta property="og:description" content="" />
+    <meta property="og:image" content="https://s3.amazonaws.com/wbez-assets/curiousfacts/images/facebookimage" />
+    <meta property="og:site_name" content="WBEZ Curious City" />
 
 		<!-- Google Analytics -->
 		<script>
@@ -68,6 +75,23 @@
     {% block scripts %}
 
     {% endblock %}
+    <!-- Chartbeat -->
+    <script type="text/javascript">
+       var _sf_async_config = { uid: 5703, domain: 'interactive.wbez.org', useCanonical: true };
+       (function() {
+         function loadChartbeat() {
+           window._sf_endpt = (new Date()).getTime();
+           var e = document.createElement('script');
+           e.setAttribute('language', 'javascript');
+           e.setAttribute('type', 'text/javascript');
+           e.setAttribute('src','//static.chartbeat.com/js/chartbeat.js');
+           document.body.appendChild(e);
+         };
+         var oldonload = window.onload;
+         window.onload = (typeof window.onload != 'function') ?
+           loadChartbeat : function() { oldonload(); loadChartbeat(); };
+       })();
+     </script>
     
   </body>
 </html>
