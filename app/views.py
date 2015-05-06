@@ -43,15 +43,14 @@ def api_random():
 
 @app.route('/<id>')
 def posts(id):
-	# randFact = ''
-	# for row in g.data:
-	# 	if row['ID'] == id:
-	# 		randFact = row
 
 	randFact = filter(lambda f: f['ID'] == id, g.data)
-	email = mailto(randFact[0]['FactText'])
+	if not randFact:
+		return redirect(url_for('index'))
+	else:
+		email = mailto(randFact[0]['FactText'].encode('utf8'))
 
-   	return render_template('index.html',data=randFact[0],factCount=g.count,factID=randFact[0]['ID'],email=email)
+   		return render_template('index.html',data=randFact[0],factCount=g.count,factID=randFact[0]['ID'],email=email)
 
 @app.route('/html/<id>')
 def post_html(id):
@@ -60,7 +59,7 @@ def post_html(id):
 		if row['ID'] == id:
 			randFact = row
 
-	email = mailto(randFact['FactText'])
+	email = mailto(randFact['FactText'].encode('utf8'))
 
    	return render_template(randFact['Template']+'.html',data=randFact,email=email)
 
