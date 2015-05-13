@@ -20,17 +20,15 @@
     <link href='http://fonts.googleapis.com/css?family=PT+Sans' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" type="text/css" href="static/ccapp.css">
 
-    {# Twitter #}
     <meta name="twitter:card" content="">
     <meta name="twitter:site" content="@wbezcuriouscity">
-    <meta name="twitter:image" content="" />
+    <meta name="twitter:image" content="https://s3.amazonaws.com/wbez-assets/curiousfacts/images/facebookimage.jpg" />
 
-    {# Facebook #}
     <meta property="og:title" content="WBEZ Curious City Fact Generator" />
-    <meta property="og:url" content="http://curiousfacts.wbez.org" />
+    <meta property="og:url" name="url" content="http://curiousfacts.wbez.org/{{data.ID}}" />
     <meta property="og:type" content="website" />
-    <meta property="og:description" content="" />
-    <meta property="og:image" content="https://s3.amazonaws.com/wbez-assets/curiousfacts/images/facebookimage" />
+    <meta property="og:description" content="{{data.FactTweet}}" />
+    <meta property="og:image" content="https://s3.amazonaws.com/wbez-assets/curiousfacts/images/facebookimage.jpg" />
     <meta property="og:site_name" content="WBEZ Curious City" />
 
 		<!-- Google Analytics -->
@@ -40,8 +38,8 @@
 		m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
 		})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 
-		ga('create', 'UA-369047-1', 'auto');
-		ga('send', 'pageview');
+		// ga('create', 'UA-369047-1', 'auto');
+		// ga('send', 'pageview');
 
 		</script>
 		<!-- End Google Analytics -->

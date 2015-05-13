@@ -48,7 +48,7 @@ def posts(id):
 	if not randFact:
 		return redirect(url_for('index'))
 	else:
-		email = mailto(randFact[0]['FactText'].encode('utf8'),id)
+		email = mailto(randFact[0]['FactText'].encode('utf8'),randFact[0]['ID'])
 
    		return render_template('index.html',data=randFact[0],factCount=g.count,factID=randFact[0]['ID'],email=email)
 
@@ -59,17 +59,16 @@ def post_html(id):
 		if row['ID'] == id:
 			randFact = row
 
-	email = mailto(randFact['FactText'].encode('utf8'), id)
+	email = mailto(randFact['FactText'].encode('utf8'),id)
 
    	return render_template(randFact['Template']+'.html',data=randFact,email=email)
 
 def mailto(fact,ID):
-
-	body = """Hi!\n\nI was just flipping through Curious City's Fact Generator and learned this interesting thing about Chicago:\n\n%s\n\nThey've got more where that came from:\n\n""" % fact
-	
-	subject_parse = quote('Found a neat fact about Chicago for you')
 	url = 'http://curiousfacts.wbez.org/'+ID
-	body_parse = quote(body+url)
+	url_parse = quote(url)
+	body = """Hi!\n\nI was just flipping through Curious City's Fact Generator and learned this interesting thing about Chicago:\n\n%s\n\nThey've got more where that came from:\n\n%s""" % (fact,url_parse)
+	subject_parse = quote('Found a neat fact about Chicago for you')
+	body_parse = quote(body)
 
 	email = "mailto:?subject=%s&body=%s" % (subject_parse,body_parse)
 

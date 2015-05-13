@@ -70,6 +70,7 @@ $( document ).ready(function() {
 	// The next button. Adds a click and then kicks off the changing of the fact
 	$(document).on( 'click', '.next', function(e) {
 		clicks++;
+		ga('send', 'event', 'Curious City Facts', 'click', 'still curious', {'page': '/'+factID});	
 		newColor = backgrounds[Math.floor((Math.random()*backgrounds.length))];
 		$('.fact').animate({
     		opacity:0, 
@@ -142,6 +143,8 @@ $( document ).ready(function() {
 				$('#photoModal').modal()
 			});
 
+			$('meta[property=og\\:url]').attr('content', window.location.href);
+			$('meta[property=og\\:description]').attr('content',"{{data.FactTweet|safe}}");
 			// $('.fa-camera').click(function(){
 			// 	console.log('photo time');
 			// 	resizePhoto();
