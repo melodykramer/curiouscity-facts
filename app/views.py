@@ -22,7 +22,7 @@ def before_request():
 
 @app.route('/')
 def index():
-	randFact = random.choice(g.data)
+	randFact = get_first()
 	# return render_template('index.html', data=randFact)
 	return redirect(url_for('posts',id=randFact['ID']))
 	# return jsonify(randFact)
@@ -73,6 +73,13 @@ def mailto(fact,ID):
 	email = "mailto:?subject=%s&body=%s" % (subject_parse,body_parse)
 
 	return email
+
+def get_first():
+	randFact = random.choice(g.data)
+	while randFact['ID'] == 'donate':
+		randFact = random.choice(g.data)
+
+	return randFact
 
 if __name__ == '__main__':
     app.run()
