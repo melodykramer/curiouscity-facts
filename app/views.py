@@ -66,7 +66,7 @@ def post_html(id):
 def mailto(fact,ID):
 	url = 'http://curiousfacts.wbez.org/'+ID
 	url_parse = quote(url)
-	body = """Hi!\n\nI was just flipping through Curious City's Fact Generator and learned this interesting thing about Chicago:\n\n%s\n\nThey've got more where that came from:\n\n%s""" % (fact,url_parse)
+	body = """Hi!\n\nI was just flipping through Curious City's Fact Generator and learned this interesting thing about Chicago:\n\n%s\n\nThey've got more where that came from:\n\n%s""" % (fact,url)
 	subject_parse = quote('Found a neat fact about Chicago for you')
 	body_parse = quote(body)
 
