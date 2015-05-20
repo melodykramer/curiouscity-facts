@@ -143,6 +143,11 @@ $( document ).ready(function() {
 				$('#photoModal').modal()
 			});
 
+	    	// Set meta properties to share the fact
+    		$('meta[property=twitter\\:url]').attr('content', window.location.href);
+			$('meta[property=twitter\\:description]').attr('content',"{{data['Readable Slug']}}");
+			$('meta[property=twitter\\:image]').attr('content',"http://curiousfacts.wbez.org/static/share_images/{{data.ID}}.png");
+
 			$('meta[property=og\\:url]').attr('content', window.location.href);
 			$('meta[property=og\\:description]').attr('content',"{{data.FactTweet|safe}}");
 			$('meta[property=og\\:image]').attr('content',"http://curiousfacts.wbez.org/static/share_images/{{data.ID}}.png");
