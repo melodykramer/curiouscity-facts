@@ -1,7 +1,7 @@
 <div class="fact" id="{{data.ID}}">
-	Fact finding isn't cheap, and we're funded by folks like you. Curious City is non-profit, and we hope you find us worthy of donating a few bucks to keep stuff like this going. Thanks!<br>
+	{%if data.FactText %}{{data.FactText}}{% endif %}<br>
 	<div class="emoji text-center"><i class="fa fa-heart"></i> <i class="fa fa-plus"></i> <i class="fa fa-usd"></i> = <i class="fa fa-smile-o"></i></div>
 </div>
 <div class="social donate">
-	<a class="story" href="https://donate.chicagopublicmedia.org/give/wbez/" target="_blank" role="button">GIVE NOW</button></a>
+	<a class="story" href="{{data.StoryUrl}}" target="_blank" role="button">GIVE NOW</button></a>
 </div>

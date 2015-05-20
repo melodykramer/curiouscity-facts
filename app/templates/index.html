@@ -151,12 +151,6 @@ $( document ).ready(function() {
 			$('meta[property=og\\:url]').attr('content', window.location.href);
 			$('meta[property=og\\:description]').attr('content',"{{data.FactTweet|safe}}");
 			$('meta[property=og\\:image]').attr('content',"http://curiousfacts.wbez.org/static/share_images/{{data.ID}}.png");
-			// $('.fa-camera').click(function(){
-			// 	console.log('photo time');
-			// 	resizePhoto();
-			// 	$('.fact-photo').toggle();  
-			// 	$('.fact').toggle();
-			// })
 
 			resizeText();
 				

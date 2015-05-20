@@ -45,11 +45,12 @@ def api_random():
 def posts(id):
 
 	randFact = filter(lambda f: f['ID'] == id, g.data)
+	print randFact
 	if not randFact:
-		return redirect(url_for('index'))
+		print 'NO FACT!'
+		abort(404)
 	else:
 		email = mailto(randFact[0]['FactText'].encode('utf8'),randFact[0]['ID'])
-
    		return render_template('index.html',data=randFact[0],factCount=g.count,factID=randFact[0]['ID'],email=email)
 
 @app.route('/html/<id>')
@@ -62,6 +63,12 @@ def post_html(id):
 	email = mailto(randFact['FactText'].encode('utf8'),id)
 
    	return render_template(randFact['Template']+'.html',data=randFact,email=email)
+
+@app.errorhandler(404)
+def page_not_found(e):
+	print "rendering 404"
+	error_fact = {'ID':'404','FactText':'Fact: This page does not exist. Maybe hit that big button at the bottom and try again?','Template':'404'}
+	return render_template('index.html',data=error_fact,factCount=g.count,factID='404'), 404
 
 def mailto(fact,ID):
 	url = 'http://curiousfacts.wbez.org/'+ID
