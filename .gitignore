@@ -7,3 +7,4 @@ include
 previous
 *.DS_Store
 index.html
+app/static/share_images/*

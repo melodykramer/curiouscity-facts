@@ -30,7 +30,7 @@ with open(JSON_DATA) as data:
 		margin = 60
 		offset = 240
 		text = fact['FactText']
-		wrap = textwrap.wrap(text, width=40)
+		wrap = textwrap.wrap(text, width=45)
 
 		for line in wrap:
 			draw.text((margin, offset), line, font=font, fill="#fff")
