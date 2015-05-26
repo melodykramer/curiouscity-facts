@@ -22,14 +22,14 @@
 
     <meta name="twitter:card" content="photo">
     <meta name="twitter:site" content="@wbezcuriouscity">
-    <meta name="twitter:image" content="https://s3.amazonaws.com/wbez-assets/curiousfacts/images/facebookimage.png" />
+    <meta name="twitter:image" content="http://curiousfacts.wbez.org/static/share_images/{{data.ID}}.png" />
     <meta name="twitter:title" content="{{data['Readable Slug']}}" />
     <meta name="twitter:url" content="http://curiousfacts.wbez.org/{{data.ID}}" />
 
     <meta property="og:title" content="WBEZ Curious City Fact Generator" />
     <meta property="og:url" name="url" content="http://curiousfacts.wbez.org/{{data.ID}}" />
     <meta property="og:type" content="website" />
-    <meta property="og:description" content="{{data.FactTweet|safe}}" />
+    <meta property="og:description" content="{{data.FactTweet|e}}" />
     <meta property="og:image" content="http://curiousfacts.wbez.org/static/share_images/{{data.ID}}.png" />
     <meta property="og:site_name" content="WBEZ Curious City" />
 

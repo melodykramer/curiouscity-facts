@@ -81,10 +81,11 @@ $( document ).ready(function() {
 
 	// Checks number of clicks to see if a callout shoud happen. If not, get a new fact
     function changeFact(){
+    	console.log(clicks+' '+count);
 		if (clicks % count == 0){
 			visited = [];
 		};
-		if ((clicks % 5) == 0 && clicks > 0) {
+		if ((clicks % 10) == 0 && clicks > 0) {
 			visited.push('donate');
 			history.pushState({path:'donate'}, '', 'donate');
 			updateTemplate('donate');
@@ -112,7 +113,6 @@ $( document ).ready(function() {
 
 	// Take a fact ID and update the template
 	function updateTemplate(entryID){
-		console.log('updateTemplate');
 		$('.card').load("/html/"+entryID,function(){
 			$(".fa-refresh, .footer").hover(
 				function(){$('.fa-refresh').css('color',newColor)},
@@ -137,7 +137,6 @@ $( document ).ready(function() {
 	    	$('.next').trigger('mouseenter');
 
 	    	$('.fa-camera').click(function(){
-				console.log('photo click');
 				var image = $(this).data("image") 
 				$('#photoModal .modal-content').css('background-image', 'url(' + image + ')');
 				$('#photoModal').modal()
@@ -149,7 +148,7 @@ $( document ).ready(function() {
 			$('meta[property=twitter\\:image]').attr('content',"http://curiousfacts.wbez.org/static/share_images/{{data.ID}}.png");
 
 			$('meta[property=og\\:url]').attr('content', window.location.href);
-			$('meta[property=og\\:description]').attr('content',"{{data.FactTweet|safe}}");
+			$('meta[property=og\\:description]').attr('content',"{{data.FactTweet|e}}");
 			$('meta[property=og\\:image]').attr('content',"http://curiousfacts.wbez.org/static/share_images/{{data.ID}}.png");
 
 			resizeText();
@@ -188,7 +187,6 @@ $( document ).ready(function() {
 	})
 
 	$('.fa-camera').click(function(){
-		console.log('photo click');
 		var image = $(this).data("image"); 
 		$('#photoModal .modal-content').css('background-image', 'url(' + image + ')');
 		$('#photoModal').modal();
@@ -201,20 +199,15 @@ $( document ).ready(function() {
 		var cheight = $(window).outerHeight() - $('.header').outerHeight( true ) - $('.logo').outerHeight( true ) - $('.social').outerHeight( true ) - $('.next').outerHeight( true );
 
 		heightBuffer = cheight-(cheight/4);
-		console.log(cheight);
 
 		// Resize if text is bigger than div
 	    while( ($('.fact').outerHeight() > cheight) && (cheight > 0) && (parseInt($('.fact').css('font-size'))>8)) {
-	    	console.log('resize big');
 	        $('.fact').css('font-size', (parseInt($('.fact').css('font-size')) - 1) + "px" );
 	    }
 	    // Resize if text is smaller than div - buffer
 	    while( ($('.fact').outerHeight() < heightBuffer) && (cheight > 0) && (parseInt($('.fact').css('font-size'))<64)) {
-	    	console.log('resize small');
 	        $('.fact').css('font-size', (parseInt($('.fact').css('font-size')) + 1) + "px" );
 	    }
-
-	    console.log(($('.fact').outerHeight() < cheight), (cheight > 0), (parseInt($('.fact').css('font-size'))<72));
 	};
 
 	resizeText();
@@ -223,7 +216,6 @@ $( document ).ready(function() {
 		var cwidth = $('.container').width();
 		var cheight = $(window).height() - $('.header').outerHeight( true ) - $('.logo').outerHeight( true ) - $('.next').outerHeight( true ) - $('.social').outerHeight( true );
 		var ratio = $('.fact-photo').height()/$('.fact-photo').width();
-		console.log("Width, height and ratio are "+cwidth,cheight,ratio);
 		if (cheight > cwidth) {
 			$('.fact-photo').width(cwidth);
 			$('.fact-photo').height(cwidth*ratio);
@@ -242,13 +234,9 @@ $( document ).ready(function() {
 	});
 
 	window.addEventListener('popstate', function(event) {
-	  console.log(event.state);
 	  updateTemplate(event.state.path)
 	});
-	
-	$('.next').focus(function(){
-		console.log('next focus');
-	});
+
 });
 
 </script>
