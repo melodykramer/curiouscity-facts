@@ -39,9 +39,7 @@ def api_random():
 def posts(id):
 
 	randFact = filter(lambda f: f['ID'] == id, g.data)
-	print randFact
 	if not randFact:
-		print 'NO FACT!'
 		abort(404)
 	else:
 		email = mailto(randFact[0]['FactText'].encode('utf8'),randFact[0]['ID'])
