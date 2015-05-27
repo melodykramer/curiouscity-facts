@@ -8,3 +8,5 @@ previous
 *.DS_Store
 index.html
 app/static/share_images/
+fabfile.py
+gdocs.py
