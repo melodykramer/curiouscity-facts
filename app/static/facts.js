@@ -83,11 +83,11 @@ $( document ).ready(function() {
 	    	// Set meta properties to share the fact
     		$('meta[property=twitter\\:url]').attr('content', window.location.href);
 			$('meta[property=twitter\\:description]').attr('content',"{{data['Readable Slug']}}");
-			$('meta[property=twitter\\:image]').attr('content',"http://curiousfacts.wbez.org/static/share_images/{{data.ID}}.png");
+			$('meta[property=twitter\\:image]').attr('content',"https://s3.amazonaws.com/wbez-assets/curiousfacts/shareimages/{{data.ID}}.png");
 
 			$('meta[property=og\\:url]').attr('content', window.location.href);
 			$('meta[property=og\\:description]').attr('content',"{{data.FactTweet|e}}");
-			$('meta[property=og\\:image]').attr('content',"http://curiousfacts.wbez.org/static/share_images/{{data.ID}}.png");
+			$('meta[property=og\\:image]').attr('content',"https://s3.amazonaws.com/wbez-assets/curiousfacts/shareimages/{{data.ID}}.png");
 
 			resizeText();
 				

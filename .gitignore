@@ -7,6 +7,6 @@ include
 previous
 *.DS_Store
 index.html
-app/static/share_images/
+app/static/shareimages
 fabfile.py
 gdocs.py

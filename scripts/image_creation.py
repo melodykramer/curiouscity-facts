@@ -10,13 +10,21 @@ colors = ['#3584A2','#4cbde7','#64b278','#77b23e','#e7764c','#f0aa8f','#774ce7',
 strip_color = ImageColor.getrgb('#333')
 bottom=Image.new("RGB", (1600,20),strip_color)
 
-fact_logo = Image.open(os.path.join(ROOT,'app','static','FACT-GEN-CIRCLE.png'))
+fact_logo = Image.open(os.path.join(ROOT,'app','static','fact-gen-circle-2.png'))
 fact_resize = fact_logo.resize((160, 160), Image.ANTIALIAS)
 cc_logo = Image.open(os.path.join(ROOT,'app','static','cclogo3.png'))
 cc_ratio = 404/float(225)
 cc_resize = cc_logo.resize((int(160*cc_ratio),160), Image.ANTIALIAS)
 
 with open(JSON_DATA) as data:
+
+	# delete old images
+	dirPath = os.path.join(ROOT,'app','static','shareimages')
+	fileList = os.listdir(dirPath)
+	for fileName in fileList:
+		os.remove(dirPath+"/"+fileName)
+
+	# load facts and create new images
 	facts = json.load(data)
 	for fact in facts:
 		newColor = colors[randint(0,len(colors)-1)];
@@ -37,6 +45,6 @@ with open(JSON_DATA) as data:
 			#offset += font.getsize(line)[1]
 			offset += 106
 
-		path = os.path.join(ROOT,'app','static','share_images/%s.png') % fact['ID']
+		path = os.path.join(ROOT,'app','static','shareimages/%s.png') % fact['ID']
 
 		img.save(path)
