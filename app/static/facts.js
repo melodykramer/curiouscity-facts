@@ -8,7 +8,7 @@ $( document ).ready(function() {
 	// The next button. Adds a click and then kicks off the changing of the fact
 	$(document).on( 'click', '.next', function(e) {
 		clicks++;
-		ga('send', 'event', 'Curious City Facts', 'click', 'still curious', {'page': '/'+factID});	
+		ga('send', 'event', 'Curious City Facts', 'click', 'still curious', {'page': '/'+factID});
 		$('.fact').animate({
     		opacity:0, 
     	}, 250, function(){
@@ -18,7 +18,6 @@ $( document ).ready(function() {
 
 	// Checks number of clicks to see if a callout shoud happen. If not, get a new fact
     function changeFact(){
-    	console.log(clicks+' '+count);
 		if (clicks % count == 0){
 			visited = [];
 		};
@@ -41,6 +40,7 @@ $( document ).ready(function() {
 			} else {
 				visited.push(data);
 				history.pushState({path:data}, '', data);
+				factID = data;
 				updateTemplate(data);
 				// send ga pageview
 				ga('send', 'pageview', '/'+data);
